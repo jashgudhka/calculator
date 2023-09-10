@@ -1,0 +1,66 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-family: Poppins, sans-serif;
+  font-weight: normal;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.calc-grid {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  min-height: 100vh;
+  max-height: 100vh;
+  grid-template-columns: repeat(4, 5rem);
+  grid-template-rows: minmax(6rem, auto) repeat(5, 5rem);
+}
+
+.calc-grid > button {
+  cursor: pointer;
+  font-size: 2rem;
+  border: 1px solid white;
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.calc-grid > button:hover {
+  background-color: rgba(255, 255, 255, 0.95);
+}
+
+/* To allow the buttons with the span-two class span to 2 cols */
+.span-two {
+  grid-column: span 2;
+}
+
+.output {
+  /* This will fill the entire width of the top row */
+  grid-column: 1/-1;
+  background-color: rgba(0, 0, 0, 0.7);
+  /* This is to align the values on to the right side like a traditional calc */
+  display: flex;
+  align-items: flex-end;
+  /* To add space between the two values */
+  justify-content: space-around;
+  /* The values will be aligned horzontally by default, changed it to column for stacking look */
+  flex-direction: column;
+  padding: 1em;
+
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+.output .previous-operand {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.5rem;
+}
+
+.output .current-operand {
+  color: white;
+  font-size: 2.25rem;
+}
